@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.post(
   "/create-user",
-  // auth(UserRole.admin),
+  auth(UserRole.admin),
   validateRequest(UserValidation.userValidationSchema),
   UserController.createUser
 );
