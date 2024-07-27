@@ -7,6 +7,7 @@ import config from "../config.js";
 const superUser = {
   id: uniqid(),
   email: config.super_admin_email,
+  name: "Super Admin",
   role: UserRole.superAdmin,
   status: "in-progress",
   isDeleted: false,

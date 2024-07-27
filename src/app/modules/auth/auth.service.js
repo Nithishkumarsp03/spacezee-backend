@@ -54,6 +54,8 @@ const loginUser = async (payload) => {
   //create token and sent to the  client
 
   const jwtPayload = {
+    id: user.id,
+    name: user.name,
     email: user.email,
     role: user.role,
   };
@@ -172,10 +174,11 @@ const refreshToken = async (token) => {
   }
 
   const jwtPayload = {
+    id: user.id,
+    name: user.name,
     email: user.email,
     role: user.role,
   };
-
   const accessToken = createToken(
     jwtPayload,
     config.jwt_access_secret,
@@ -217,6 +220,8 @@ const forgetPassword = async (email) => {
   }
 
   const jwtPayload = {
+    id: user.id,
+    name: user.name,
     email: user.email,
     role: user.role,
   };
@@ -263,7 +268,6 @@ const resetPassword = async (payload, token) => {
   const decoded = jwt.verify(token, config.jwt_access_secret);
 
   if (payload.email !== decoded.email) {
-    console.log(payload.email, decoded.email);
     throw new AppError(httpStatus.FORBIDDEN, "Forbidden Access!");
   }
 
