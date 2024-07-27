@@ -16,7 +16,7 @@ const userValidationSchema = z.object({
   }),
 });
 
-const changeStatusValidationSchema = z.object({
+const userChangeStatusValidationSchema = z.object({
   body: z.object({
     status: z.enum([...UserStatus]),
   }),
@@ -35,8 +35,17 @@ const userPasswordChangeValidationSchema = z.object({
   }),
 });
 
+const userDelateSchema = z.object({
+  body: z.object({
+    isDeleted: z.boolean({
+      invalid_type_error: "Delete must me boolean",
+    }),
+  }),
+});
+
 export const UserValidation = {
   userValidationSchema,
-  changeStatusValidationSchema,
+  userChangeStatusValidationSchema,
   userPasswordChangeValidationSchema,
+  userDelateSchema,
 };

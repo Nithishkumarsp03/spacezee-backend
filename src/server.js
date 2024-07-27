@@ -1,10 +1,12 @@
 import config from "./app/config.js";
 import mongoose from "mongoose";
 import app from "./app.js";
+import seedSuperAdmin from "./app/DB/superAdmin.js";
 
 async function main() {
   try {
     await mongoose.connect(config.database_url);
+    seedSuperAdmin();
     app.listen(config.port, () => {
       console.log(`Server Has started at ${config.port}`);
     });

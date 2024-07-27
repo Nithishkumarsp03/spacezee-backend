@@ -8,13 +8,13 @@ const app = express();
 
 //parsers
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 
 // application routes
 app.use("/api/", router);
 
-app.get("/", (req, res) => {
-  res.send("hello World");
+app.get("/api", (req, res) => {
+  res.send("Api running");
 });
 
 app.use(globalErrorHandler);

@@ -83,7 +83,7 @@ const createPassword = catchAsync(async (req, res) => {
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "Password generation successful!",
+    message: "Generated password sent to your email!",
     data: result,
   });
 });

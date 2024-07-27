@@ -7,6 +7,7 @@ import config from "../../config.js";
 import { createToken, verifyToken } from "./auth.utils.js";
 import { generate } from "generate-password";
 import { sendEmail } from "../../utils/sendEmail.js";
+import { emailFormatter } from "../../utils/emailFormatter.js";
 
 const loginUser = async (payload) => {
   // checking if the user is exist
@@ -48,7 +49,7 @@ const loginUser = async (payload) => {
   //checking if the password is correct
 
   if (!(await User.isPasswordMatched(payload?.password, user?.password)))
-    throw new AppError(httpStatus.FORBIDDEN, "Password do not matched");
+    throw new AppError(httpStatus.FORBIDDEN, "Wrong password");
 
   //create token and sent to the  client
 
@@ -188,6 +189,7 @@ const refreshToken = async (token) => {
 
 const forgetPassword = async (email) => {
   // checking if the user is exist
+
   const user = await User.isUserExistByEmail(email);
 
   if (!user) {
@@ -221,11 +223,13 @@ const forgetPassword = async (email) => {
 
   const resetToken = createToken(jwtPayload, config.jwt_access_secret, "10m");
 
-  const resetUILink = `${config.reset_pass_ui_link}?email=${user.email}&token=${resetToken} `;
+  const resetUILink = `${config.reset_pass_ui_link}?token=${resetToken} `;
 
-  sendEmail(user.email, resetUILink, "Reset your password within ten mins!");
-
-  console.log(resetUILink);
+  sendEmail(
+    user.email,
+    emailFormatter.passwordResetEmailFormat(resetUILink),
+    "Reset your password within ten mins!"
+  );
 };
 
 const resetPassword = async (payload, token) => {
@@ -258,11 +262,9 @@ const resetPassword = async (payload, token) => {
 
   const decoded = jwt.verify(token, config.jwt_access_secret);
 
-  //localhost:3000?id=A-0001&token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBLTAwMDEiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDI4NTA2MTcsImV4cCI6MTcwMjg1MTIxN30.-T90nRaz8-KouKki1DkCSMAbsHyb9yDi0djZU3D6QO4
-
   if (payload.email !== decoded.email) {
     console.log(payload.email, decoded.email);
-    throw new AppError(httpStatus.FORBIDDEN, "You are forbidden!");
+    throw new AppError(httpStatus.FORBIDDEN, "Forbidden Access!");
   }
 
   //hash new password
@@ -295,7 +297,7 @@ const createPassword = async (userData) => {
   if (user?.password) {
     throw new AppError(
       httpStatus.FORBIDDEN,
-      "Password already generated. Reset if forgot password"
+      "Password is already generated. Reset if forgot password"
     );
   }
 
@@ -314,11 +316,9 @@ const createPassword = async (userData) => {
     symbols: true,
   });
 
-  console.log("new password", newPassword);
-
   sendEmail(
     user.email,
-    `<p>Password: ${newPassword}</p>`,
+    emailFormatter.passwordEmailFormat(newPassword),
     "New password generated"
   );
 

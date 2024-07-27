@@ -29,10 +29,24 @@ const getMe = catchAsync(async (req, res) => {
 });
 
 const changeStatus = catchAsync(async (req, res) => {
-  const id = req.params.id;
+  const { email, status } = req.body;
 
-  const result = await UserService.changeStatus(id, req.body);
+  console.log(status);
 
+  const result = await UserService.changeStatus(email, status);
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User is updated successfully",
+    data: result,
+  });
+});
+
+const deleteUser = catchAsync(async (req, res) => {
+  const email = req.params.email;
+
+  const result = await UserService.deleteUser(email, req.body);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
@@ -45,4 +59,5 @@ export const UserController = {
   createUser,
   getMe,
   changeStatus,
+  deleteUser,
 };
