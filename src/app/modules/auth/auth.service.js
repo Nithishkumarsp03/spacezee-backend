@@ -267,6 +267,8 @@ const resetPassword = async (payload, token) => {
 
   const decoded = jwt.verify(token, config.jwt_access_secret);
 
+  console.log(decoded);
+
   if (payload.email !== decoded.email) {
     throw new AppError(httpStatus.FORBIDDEN, "Forbidden Access!");
   }

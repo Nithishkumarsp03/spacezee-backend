@@ -7,8 +7,9 @@ import router from "./app/routes/routes.js";
 const app = express();
 
 //parsers
+const URL = "https://sl-il.netlify.app";
 app.use(express.json());
-app.use(cors({ origin: "https://sl-il.netlify.app", credentials: true }));
+app.use(cors({ origin: URL, credentials: true }));
 
 // application routes
 app.use("/api/", router);
