@@ -150,7 +150,77 @@ const passwordResetEmailFormat = (resetUILink) => {
   return formatMail;
 };
 
+const userIdEmailFormatter = (userId) => {
+  const formatMail = `<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Welcome to SpaceZee</title>
+      <style>
+          body {
+              font-family: Arial, sans-serif;
+              background-color: #f4f4f4;
+              margin: 0;
+              padding: 0;
+          }
+          .email-container {
+              background-color: #ffffff;
+              margin: 50px auto;
+              padding: 20px;
+              max-width: 600px;
+              border-radius: 8px;
+              box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          }
+          .email-header {
+              text-align: center;
+              padding-bottom: 20px;
+              border-bottom: 1px solid #dddddd;
+          }
+          .email-header h1 {
+              margin: 0;
+              color: #333333;
+          }
+          .email-content {
+              padding: 20px;
+              color: #555555;
+          }
+          .email-content p {
+              margin: 0 0 10px;
+          }
+          .email-footer {
+              text-align: center;
+              padding-top: 20px;
+              border-top: 1px solid #dddddd;
+              color: #888888;
+              font-size: 12px;
+          }
+      </style>
+  </head>
+  <body>
+      <div class="email-container">
+          <div class="email-header">
+              <h1>Welcome to SpaceZee</h1>
+          </div>
+          <div class="email-content">
+              <p>Dear User,</p>
+              <p>Welcome to SpaceZee! Your account has been successfully created.</p>
+              <p>Your User ID is: <strong>${userId}</strong></p>
+              <p>Thank you for joining us!</p>
+              <p>Best Regards,</p>
+              <p>SpaceZee Team</p>
+          </div>
+          <div class="email-footer">
+              <p>If you have any questions, feel free to contact us at support@example.com.</p>
+          </div>
+      </div>
+  </body>
+  </html>`;
+  return formatMail;
+};
+
 export const emailFormatter = {
   passwordEmailFormat,
   passwordResetEmailFormat,
+  userIdEmailFormatter,
 };

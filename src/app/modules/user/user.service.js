@@ -1,16 +1,23 @@
-import uniqid from "uniqid";
 import { User } from "./user.model.js";
 import AppError from "../../errors/AppError.js";
 import httpStatus from "http-status";
 import { UserRole } from "./user.constant.js";
+import { v4 as uuidv4 } from "uuid";
+import { sendEmail } from "../../utils/sendEmail.js";
+import { emailFormatter } from "../../utils/emailFormatter.js";
 
 const createUserIntoDB = async (payload) => {
   const userData = payload;
 
-  const id = uniqid();
+  const id = uuidv4();
   userData.id = id;
 
   const newUser = await User.create(userData);
+  sendEmail(
+    newUser.email,
+    emailFormatter.userIdEmailFormatter(newUser.id),
+    "Registration successful"
+  );
   return newUser;
 };
 

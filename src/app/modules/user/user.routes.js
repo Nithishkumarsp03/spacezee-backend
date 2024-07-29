@@ -13,11 +13,15 @@ router.post(
   validateRequest(UserValidation.userValidationSchema),
   UserController.createUser
 );
-
 router.get(
   "/",
   auth(UserRole.admin, UserRole.superAdmin, UserRole.user),
   UserController.getMe
+);
+router.get(
+  "/:email",
+  auth(UserRole.admin, UserRole.superAdmin),
+  UserController.getUser
 );
 router.patch(
   "/change-status",

@@ -29,11 +29,21 @@ const changePassword = catchAsync(async (req, res) => {
   const { ...passwordData } = req.body;
 
   const result = await AuthServices.changePassword(req.user, passwordData);
-  sendResponse(res, {
+  const { refreshToken, accessToken } = result;
+
+  res.cookie("refreshToken", refreshToken, {
+    secure: config.app_env === "production",
+    httpOnly: true,
+    sameSite: "none",
+    maxAge: 1000 * 60 * 60 * 24 * 365,
+  });
+  +sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: "Password is updated successfully!",
-    data: result,
+    message: "Password changed successfully!",
+    data: {
+      accessToken,
+    },
   });
 });
 
