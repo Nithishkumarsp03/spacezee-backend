@@ -1,11 +1,11 @@
-import uniqid from "uniqid";
 import bcrypt from "bcrypt";
 import { UserRole } from "../modules/user/user.constant.js";
 import { User } from "../modules/user//user.model.js";
 import config from "../config.js";
+import { v4 as uuidv4 } from "uuid";
 
 const superUser = {
-  id: uniqid(),
+  id: uuidv4(),
   email: config.super_admin_email,
   name: "Super Admin",
   role: UserRole.superAdmin,

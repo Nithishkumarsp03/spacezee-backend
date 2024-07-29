@@ -79,14 +79,14 @@ const loginUser = async (payload) => {
 };
 
 const changePassword = async (userData, payload) => {
-  // checking if the user is exist
+  // checking if the user exists
   const user = await User.isUserExistByEmail(userData.email);
 
   if (!user) {
-    throw new AppError(httpStatus.NOT_FOUND, "This user is not found !");
+    throw new AppError(httpStatus.NOT_FOUND, "This user is not found!");
   }
-  // checking if the user is already deleted
 
+  // checking if the user is already deleted
   const isDeleted = user?.isDeleted;
 
   if (isDeleted) {
@@ -94,7 +94,6 @@ const changePassword = async (userData, payload) => {
   }
 
   // checking if the user is blocked
-
   const userStatus = user?.status;
 
   if (userStatus === "blocked") {
@@ -108,17 +107,19 @@ const changePassword = async (userData, payload) => {
     );
   }
 
-  //checking if the password is correct
-
-  if (!(await User.isPasswordMatched(payload.oldPassword, user?.password)))
+  // checking if the password is correct
+  if (!(await User.isPasswordMatched(payload.oldPassword, user?.password))) {
     throw new AppError(httpStatus.FORBIDDEN, "Wrong old password");
+  }
 
-  //hash new password
+  // hash new password
   const newHashedPassword = await bcrypt.hash(
     payload.newPassword,
     Number(config.bcrypt_salt_round)
   );
 
+  // update the user's password and passwordChangedAt field
+  const passwordChangedAt = new Date(Date.now() - 1000);
   await User.findOneAndUpdate(
     {
       email: userData.email,
@@ -126,11 +127,36 @@ const changePassword = async (userData, payload) => {
     },
     {
       password: newHashedPassword,
-      passwordChangedAt: new Date(),
+      passwordChangedAt,
     }
   );
 
-  return null;
+  // Fetch the user again to ensure passwordChangedAt is up-to-date
+  const updatedUser = await User.isUserExistByEmail(userData.email);
+
+  const jwtPayload = {
+    id: updatedUser.id,
+    name: updatedUser.name,
+    email: updatedUser.email,
+    role: updatedUser.role,
+  };
+
+  const accessToken = createToken(
+    jwtPayload,
+    config.jwt_access_secret,
+    config.jwt_access_expires_in
+  );
+
+  const refreshToken = createToken(
+    jwtPayload,
+    config.jwt_refresh_secret,
+    config.jwt_refresh_expires_in
+  );
+
+  return {
+    accessToken,
+    refreshToken,
+  };
 };
 
 const refreshToken = async (token) => {

@@ -1,8 +1,6 @@
 import { Schema, model } from "mongoose";
 
 import bcrypt from "bcrypt";
-
-// import config from "../../config.js";
 import { UserStatus } from "./user.validation.js";
 
 const userSchema = new Schema(

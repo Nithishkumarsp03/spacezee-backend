@@ -2,6 +2,7 @@ import { UserService } from "./user.service.js";
 import httpStatus from "http-status";
 import sendResponse from "../../utils/sendResponse.js";
 import catchAsync from "../../utils/catchAsync.js";
+import AppError from "../../errors/AppError.js";
 
 const createUser = catchAsync(async (req, res) => {
   const data = req.body;
@@ -55,9 +56,27 @@ const deleteUser = catchAsync(async (req, res) => {
   });
 });
 
+const getUser = catchAsync(async (req, res) => {
+  const email = req.params.email;
+
+  const result = await UserService.getMe(email);
+
+  if (!result) {
+    throw new AppError(httpStatus.NOT_FOUND, "This user is not found !");
+  }
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User info retrieve successful",
+    data: result,
+  });
+});
+
 export const UserController = {
   createUser,
   getMe,
   changeStatus,
   deleteUser,
+  getUser,
 };
