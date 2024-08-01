@@ -12,7 +12,7 @@ router.post(
   validateRequest(programValidation.programValidationSchema),
   ProgramController.createProgram
 );
-router.get(
+router.post(
   "/",
   auth(UserRole.admin, UserRole.superAdmin, UserRole.user),
   ProgramController.getAllPrograms
