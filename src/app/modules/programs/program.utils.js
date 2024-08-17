@@ -116,8 +116,22 @@ export const getProgramDetailsAggregation = [
     },
   },
   {
+    $lookup: {
+      from: "taskmaterials",
+      localField: "practicals.practical",
+      foreignField: "_id",
+      as: "practicalsDetails",
+    },
+  },
+  {
     $unwind: {
       path: "$learningMaterialsDetails",
+      preserveNullAndEmptyArrays: true,
+    },
+  },
+  {
+    $unwind: {
+      path: "$practicalsDetails",
       preserveNullAndEmptyArrays: true,
     },
   },
@@ -126,6 +140,13 @@ export const getProgramDetailsAggregation = [
       "learningMaterialsDetails.courseContents": {
         $filter: {
           input: "$learningMaterialsDetails.courseContents",
+          as: "courseContent",
+          cond: { $eq: ["$$courseContent.isDeleted", false] },
+        },
+      },
+      "practicalsDetails.courseContents": {
+        $filter: {
+          input: "$practicalsDetails.courseContents",
           as: "courseContent",
           cond: { $eq: ["$$courseContent.isDeleted", false] },
         },
@@ -154,13 +175,33 @@ export const getProgramDetailsAggregation = [
           },
         },
       },
+      "practicalsDetails.courseContents": {
+        $map: {
+          input: "$practicalsDetails.courseContents",
+          as: "courseContent",
+          in: {
+            $mergeObjects: [
+              "$$courseContent",
+              {
+                contentDetails: {
+                  $filter: {
+                    input: "$$courseContent.contentDetails",
+                    as: "contentDetail",
+                    cond: { $eq: ["$$contentDetail.isDeleted", false] },
+                  },
+                },
+              },
+            ],
+          },
+        },
+      },
     },
   },
   {
     $group: {
       _id: "$_id",
       name: { $first: "$name" },
-      practicals: { $first: "$practicals" },
+      practicals: { $push: "$practicalsDetails" },
       learningMaterials: { $push: "$learningMaterialsDetails" },
       assignments: { $first: "$assignments" },
       defaultSelected: { $first: "$defaultSelected" },
@@ -200,6 +241,12 @@ export const getProgramDetailsAggregation = [
       "learningMaterials.createdAt": 0,
       "learningMaterials.updatedAt": 0,
       "learningMaterials.__v": 0,
+      "practicals.courseContents": 0,
+      "practicals.description": 0,
+      "practicals.isDeleted": 0,
+      "practicals.createdAt": 0,
+      "practicals.updatedAt": 0,
+      "practicals.__v": 0,
       createdAt: 0,
       updatedAt: 0,
       __v: 0,

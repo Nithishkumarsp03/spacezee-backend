@@ -1,0 +1,100 @@
+{
+  "name": "E_PAN",
+  "courseImage": "https://nergy360.blob.core.windows.net/storage/course/1rjmkac2.jpg",
+  "description": "",
+  "isDeleted": false,
+  "courseContents": [
+    {
+      "title": "EPAN_001AA",
+      "description": "<div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; white-space-collapse: preserve;'><div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; font-style: normal; font-weight: 400; text-align: left; text-indent: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255);'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Mr.Amarjit Monga, an IIT student, got a job through a campus placement programme at ABC Ltd., an IT company. ABC Ltd. asked Mr. Amarjit&nbsp;to submit his PAN card to meet statutory compliance. Since Mr. Amarjit&nbsp;does not have a PAN card, he approached you to take an instant E-PAN with the following details:</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'><br></span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Name: Amarjit Monga</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Aadhaar No:<span>&nbsp;</span><span style='font-size: 18.6667px; display: inline !important;'>99990000</span>6512</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Email ID: amarjit12345@nergymail.com&nbsp;</span></div></div></div></div></div>",
+      "contentDetails": [
+        {
+          "questions": {
+            "name": "Amarjit Monga",
+            "Aadhaar_No": "999900006512",
+            "Email_ID": "amarjit12345@nergymail.com"
+          },
+          "answers": {
+            "Aadhaar_No": "999900006512"
+          },
+          "isDeleted": false
+        }
+      ],
+      "isDeleted": false
+    },
+    {
+      "title": "EPAN_002AB",
+      "description": "<div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; white-space-collapse: preserve;'><div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; font-style: normal; font-weight: 400; text-align: left; text-indent: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255);'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'><span style='color: rgb(33, 37, 41); display: inline !important;'>Mr. Avinash Ohja</span>&nbsp;is looking for a job and he has all the necessary documents ready. He has requested your assistance in obtaining an instant E-PAN with the following details:</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 14pt; text-align: left;'><br></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Name:<span>&nbsp;</span><span style='color: rgb(33, 37, 41); display: inline !important;'>Avinash Ojha</span>&nbsp;</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Aadhaar No:<span>&nbsp;</span><span style='font-size: 18.6667px; display: inline !important;'>99990000</span>6611&nbsp;</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Email ID: <span style='color: rgb(33, 37, 41); display: inline !important;'>avinash</span>12345@nergymail.com&nbsp;</span></div></div></div></div></div>",
+      "contentDetails": [
+        {
+          "questions": {
+            "name": "Avinash Ojha",
+            "Aadhaar_No": "999900006611",
+            "Email_ID": "avinash12345@nergymail.com"
+          },
+          "answers": {
+            "Aadhaar_No": "999900006611"
+          },
+          "isDeleted": false
+        }
+      ],
+      "isDeleted": false
+    },
+    {
+      "title": "EPAN_003AC",
+      "description": "<div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; font-style: normal; font-weight: 400; text-align: left; text-indent: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255);'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Miss Swetha Rai was unable to conduct higher-value transactions due to her PAN not being updated in her bank account. To address this, the bank requested her to update her PAN card, and she approached you for the same. You are required to obtain an instant E-PAN for her with the following details:</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'><br></span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Name: Swetha Rai&nbsp;</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Aadhaar No:<span>&nbsp;</span><span style='display: inline !important;'>999900004545</span>&nbsp;</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Email ID: swetha12345@nergymail.com&nbsp;</span></div></div></div></div>",
+      "contentDetails": [
+        {
+          "questions": {
+            "name": "Swetha Rai",
+            "Aadhaar_No": "999900004545",
+            "Email_ID": "swetha12345@nergymail.com"
+          },
+          "answers": {
+            "Aadhaar_No": "999900004545"
+          },
+          "isDeleted": false
+        }
+      ],
+      "isDeleted": false
+    },
+    {
+      "title": "EPAN_004AD",
+      "description": "<div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; white-space-collapse: preserve;'><div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; font-style: normal; font-weight: 400; text-align: left; text-indent: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255);'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Mr.<span>&nbsp;</span><span style='display: inline !important;'>Shyam Sundar</span>, an MBA student, got a job through a campus placement programme at Coding Hands Ltd., an IT company. To meet statutory compliance, Coding Hands Ltd. asked Mr.<span>&nbsp;</span><span style='display: inline !important;'>Shyam</span>&nbsp;to submit his PAN card. Since he does not have a PAN card, he approached you to get an instant E-PAN with the following details:&nbsp;</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'><br></span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Name:<span>&nbsp;</span><span style='display: inline !important;'>Shyam&nbsp;<span style='display: inline !important;'>Sundar</span></span>&nbsp;</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Aadhaar No:<span>&nbsp;</span><span style='display: inline !important;'>999900006514</span>&nbsp;&nbsp;</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Phone No: 2394321233</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px; text-align: left;'><span style='font-size: 14pt;'>Email ID: s<span style='display: inline !important;'><span style='display: inline !important;'>hyam</span></span>@nergymail.com&nbsp;</span></div></div></div></div></div>",
+      "contentDetails": [
+        {
+          "questions": {
+            "name": "Shyam Sundar",
+            "Aadhaar_No": "999900006514",
+            "Email_ID": "shyam@nergymail.com",
+            "Phone_No": "2394321233"
+          },
+          "answers": {
+            "Aadhaar_No": "999900006514"
+          },
+          "isDeleted": false
+        }
+      ],
+      "isDeleted": false
+    },
+    {
+      "title": "EPAN_005AE",
+      "description": "<div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; white-space-collapse: preserve;'><div class='ewa-rteLine' style='color: rgb(0, 0, 0); font-family: Calibri; font-size: 18.6667px; font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: pre-wrap; background-color: rgb(255, 255, 255);'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px;'><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px;'><span style='font-size: 14pt;'><span style='color: rgb(33, 37, 41); text-align: left; display: inline !important;'>Mr. Rohit Khandelwal</span><span>&nbsp;</span>needs to invest in the stock exchange. For that, he needs a Demat account, which makes the process of holding investments like shares, bonds, government securities, mutual funds, insurance, and ETFs easier by taking away the hassles of physical handling and maintenance of paper shares and related documents. To proceed with opening a Demat account, he is required to have a PAN. You are required to take an instant E-PAN with the following details:</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 14pt;'><br></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px;'><span style='font-size: 14pt;'>Name:<span>&nbsp;</span><span style='color: rgb(33, 37, 41); text-align: left; display: inline !important;'>Rohit Khandelwal</span></span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px;'><span style='font-size: 14pt;'>Aadhaar No:<span>&nbsp;</span><span style='text-align: left; display: inline !important;'>999900007512</span></span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px;'><span style='font-size: 14pt;'>Phone No: 2394589623</span></div><div style='color: rgb(0, 0, 0); font-style: normal; font-weight: 400; text-align: start; text-indent: 0px; white-space: normal; background-color: rgb(255, 255, 255); font-family: Calibri; font-size: 18.6667px;'><span style='font-size: 14pt;'>Email ID: r<span style='color: rgb(33, 37, 41); text-align: left; display: inline !important;'>ohit</span>@nergymail.com</span></div></div></div></div></div>",
+      "contentDetails": [
+        {
+          "questions": {
+            "name": "Rohit Khandelwal",
+            "Aadhaar_No": "999900007512",
+            "Email_ID": "rohit@nergymail.com",
+            "Phone_No": "2394589623"
+          },
+          "answers": {
+            "Aadhaar_No": "999900007512"
+          },
+          "isDeleted": false
+        }
+      ],
+      "isDeleted": false
+    }
+  ]
+}
