@@ -2,7 +2,6 @@ import { UserService } from "./user.service.js";
 import httpStatus from "http-status";
 import sendResponse from "../../utils/sendResponse.js";
 import catchAsync from "../../utils/catchAsync.js";
-import AppError from "../../errors/AppError.js";
 
 const createUser = catchAsync(async (req, res) => {
   const data = req.body;
@@ -61,14 +60,26 @@ const getUser = catchAsync(async (req, res) => {
 
   const result = await UserService.getMe(email);
 
-  if (!result) {
-    throw new AppError(httpStatus.NOT_FOUND, "This user is not found !");
-  }
-
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: "User info retrieve successful",
+    data: result,
+  });
+});
+
+const updateCompletedTask = catchAsync(async (req, res) => {
+  const { email } = req.user;
+  const payload = req.body;
+  const result = await UserService.updateCompletedTask(
+    email,
+    payload.completedTask
+  );
+
+  sendResponse(res, {
+    statusCode: httpStatus.OK,
+    success: true,
+    message: "User Completed task update successful",
     data: result,
   });
 });
@@ -79,4 +90,5 @@ export const UserController = {
   changeStatus,
   deleteUser,
   getUser,
+  updateCompletedTask,
 };

@@ -2,7 +2,7 @@ import { Schema, model } from "mongoose";
 
 const TaskJwtSchema = new Schema(
   {
-    jwt: {
+    token: {
       type: String,
       required: true,
       unique: true,

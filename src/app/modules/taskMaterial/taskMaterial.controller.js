@@ -28,9 +28,13 @@ const getAllTaskMaterials = catchAsync(async (req, res) => {
 });
 
 const getAllTaskMaterialById = catchAsync(async (req, res) => {
-  const { role } = req.user;
+  const { role, email } = req.user;
   const { id } = req.params;
-  const result = await TaskMaterialService.getAllTaskMaterialById(role, id);
+  const result = await TaskMaterialService.getAllTaskMaterialById(
+    role,
+    id,
+    email
+  );
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

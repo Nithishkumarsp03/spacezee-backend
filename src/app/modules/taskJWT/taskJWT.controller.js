@@ -6,6 +6,7 @@ import { TaskJwtService } from "./taskJWT.service.js";
 const createTaskJwt = catchAsync(async (req, res) => {
   const data = req.body;
   const { email } = req.user;
+
   const result = await TaskJwtService.createTaskJwtIntoDB(data, email);
   sendResponse(res, {
     statusCode: httpStatus.OK,

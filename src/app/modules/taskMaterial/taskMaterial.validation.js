@@ -14,12 +14,6 @@ const contentDetailsValidationSchema = z
           message: "Questions are required",
         });
       }
-      if (!data.answers) {
-        ctx.addIssue({
-          path: ["answers"],
-          message: "Answers are required",
-        });
-      }
     }
   });
 

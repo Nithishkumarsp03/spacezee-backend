@@ -38,7 +38,15 @@ const userPasswordChangeValidationSchema = z.object({
 const userDelateSchema = z.object({
   body: z.object({
     isDeleted: z.boolean({
-      invalid_type_error: "Delete must me boolean",
+      invalid_type_error: "Delete must be boolean",
+    }),
+  }),
+});
+
+const userCompletedTaskSchema = z.object({
+  body: z.object({
+    completedTask: z.string({
+      invalid_type_error: "Task must be string",
     }),
   }),
 });
@@ -48,4 +56,5 @@ export const UserValidation = {
   userChangeStatusValidationSchema,
   userPasswordChangeValidationSchema,
   userDelateSchema,
+  userCompletedTaskSchema,
 };

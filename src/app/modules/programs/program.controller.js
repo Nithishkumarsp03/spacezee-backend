@@ -15,9 +15,9 @@ const createProgram = catchAsync(async (req, res) => {
   });
 });
 const getAllPrograms = catchAsync(async (req, res) => {
-  const { role } = req.user;
+  const { role, email } = req.user;
   const info = req.body;
-  const result = await ProgramService.getAllPrograms(role, info);
+  const result = await ProgramService.getAllPrograms(role, info, email);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     success: true,

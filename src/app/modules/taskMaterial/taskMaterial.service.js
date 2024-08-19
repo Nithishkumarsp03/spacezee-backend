@@ -1,8 +1,9 @@
 import httpStatus from "http-status";
 import { UserRole } from "../user/user.constant.js";
 
-import AppError from "../../errors/AppError.js";
 import { TaskMaterial } from "./taskMaterial.model.js";
+import { User } from "../user/user.model.js";
+import AppError from "../../errors/AppError.js";
 
 const createTaskMaterialIntoDB = async (payload) => {
   const userData = payload;
@@ -101,20 +102,59 @@ const getAllTaskMaterials = async (role) => {
   }
   return result;
 };
-const getAllTaskMaterialById = async (role, id) => {
+
+const getAllTaskMaterialById = async (role, id, email) => {
   let result;
   if (role === UserRole.user) {
+    const user = await User.isUserExistByEmail(email);
+
+    if (!user) {
+      throw new AppError(httpStatus.NOT_FOUND, "This user is not found !");
+    }
+
+    const completedTasks = user.completedTask.map((taskId) =>
+      taskId.toString()
+    );
+
     result = await TaskMaterial.findOne({
       _id: id,
       isDeleted: false,
     }).select(
       "-createdAt -updatedAt -__v -isDeleted  -courseContents.contentDetails"
     );
+
+    if (result) {
+      let completedCount = 0;
+
+      const content = result.courseContents.map((content) => {
+        const contentId = content._id.toString();
+        const isCompleted = completedTasks.includes(contentId);
+        if (isCompleted) {
+          completedCount++;
+        }
+        return {
+          ...content._doc,
+          completed: isCompleted,
+        };
+      });
+
+      const totalContents = result.courseContents.length;
+      const completedPercentage = Math.floor(
+        (completedCount / totalContents) * 100
+      );
+
+      result = {
+        ...result._doc,
+        courseContents: content,
+        completedTaskPercentage: completedPercentage,
+      };
+    }
   } else {
     result = await TaskMaterial.findById(id);
-  }
-  if (!result) {
-    throw new AppError(httpStatus.NOT_FOUND, "Course material not found !");
+
+    if (!result) {
+      throw new AppError(httpStatus.NOT_FOUND, "Course material not found !");
+    }
   }
 
   return result;
@@ -135,8 +175,15 @@ const getCourseContentById = async (taskMaterialId, courseContentId) => {
     if (!courseContent) {
       throw new Error("Course content not found");
     }
-
-    return courseContent;
+    return {
+      name: taskMaterial.name,
+      taskName: courseContent.title,
+      details: courseContent.description,
+      id: taskMaterial._id,
+      taskId: courseContent?._id,
+      questions: courseContent?.contentDetails[0]?.questions,
+      answers: courseContent?.contentDetails[0]?.answers,
+    };
   } catch (error) {
     console.error(error);
     throw new Error("Error retrieving course content");

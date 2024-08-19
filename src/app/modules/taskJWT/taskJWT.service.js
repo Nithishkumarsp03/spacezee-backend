@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 const createTaskJwtIntoDB = async (payload, email) => {
   const userData = payload;
 
-  const decoded = jwtDecode(payload?.jwt);
+  const decoded = jwtDecode(payload?.token);
   if (email !== decoded.email) {
     throw new AppError(httpStatus.NOT_ACCEPTABLE, "Invalid course session");
   }
