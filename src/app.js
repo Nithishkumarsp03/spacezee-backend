@@ -10,7 +10,7 @@ const app = express();
 const URL = "https://sl-il.netlify.app";
 const dev = "http://localhost:5173";
 app.use(express.json());
-app.use(cors({ origin: URL, credentials: true }));
+app.use(cors({ origin: dev, credentials: true }));
 
 // application routes
 app.use("/api/", router);
