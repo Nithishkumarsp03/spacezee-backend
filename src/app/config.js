@@ -1,4 +1,5 @@
 import dotenv from "dotenv";
+
 import path from "path";
 
 dotenv.config({ path: path.join(process.cwd(), ".env") });
@@ -19,5 +20,6 @@ export default {
   super_admin_email: process.env.SUPER_ADMIN_EMAIL,
   reset_pass_ui_link: process.env.RESET_PASS_UI_LINK,
   email_app_pass: process.env.EMAIL_APP_PASS,
-  email_app_id: process.env.Email_NODEMAILER,
+  email_app_id: process.env.EMAIL_NODEMAILER,
+  url_front: process.env.URL_FRONT,
 };

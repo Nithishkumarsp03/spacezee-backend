@@ -100,7 +100,7 @@ export const getFullProgramAggregation = [
   },
 ];
 
-export const getProgramDetailsAggregation = [
+export const getProgramDetailsAggregation = (completedTasks) => [
   {
     $match: { isDeleted: false },
   },
@@ -116,8 +116,22 @@ export const getProgramDetailsAggregation = [
     },
   },
   {
+    $lookup: {
+      from: "taskmaterials",
+      localField: "practicals.practical",
+      foreignField: "_id",
+      as: "practicalsDetails",
+    },
+  },
+  {
     $unwind: {
       path: "$learningMaterialsDetails",
+      preserveNullAndEmptyArrays: true,
+    },
+  },
+  {
+    $unwind: {
+      path: "$practicalsDetails",
       preserveNullAndEmptyArrays: true,
     },
   },
@@ -134,24 +148,61 @@ export const getProgramDetailsAggregation = [
   },
   {
     $set: {
-      "learningMaterialsDetails.courseContents": {
-        $map: {
-          input: "$learningMaterialsDetails.courseContents",
+      "practicalsDetails.courseContents": {
+        $filter: {
+          input: "$practicalsDetails.courseContents",
           as: "courseContent",
-          in: {
-            $mergeObjects: [
-              "$$courseContent",
-              {
-                contentDetails: {
-                  $filter: {
-                    input: "$$courseContent.contentDetails",
-                    as: "contentDetail",
-                    cond: { $eq: ["$$contentDetail.isDeleted", false] },
-                  },
-                },
-              },
+          cond: { $eq: ["$$courseContent.isDeleted", false] },
+        },
+      },
+    },
+  },
+  {
+    $set: {
+      "practicalsDetails.completedPercentage": {
+        $cond: {
+          if: {
+            $gt: [
+              { $size: { $ifNull: ["$practicalsDetails.courseContents", []] } },
+              0,
             ],
           },
+          then: {
+            $round: [
+              {
+                $multiply: [
+                  {
+                    $divide: [
+                      {
+                        $size: {
+                          $filter: {
+                            input: {
+                              $ifNull: [
+                                "$practicalsDetails.courseContents",
+                                [],
+                              ],
+                            },
+                            as: "courseContent",
+                            cond: {
+                              $in: ["$$courseContent._id", completedTasks],
+                            },
+                          },
+                        },
+                      },
+                      {
+                        $size: {
+                          $ifNull: ["$practicalsDetails.courseContents", []],
+                        },
+                      },
+                    ],
+                  },
+                  100,
+                ],
+              },
+              0,
+            ],
+          },
+          else: 0,
         },
       },
     },
@@ -160,8 +211,8 @@ export const getProgramDetailsAggregation = [
     $group: {
       _id: "$_id",
       name: { $first: "$name" },
-      practicals: { $first: "$practicals" },
-      learningMaterials: { $push: "$learningMaterialsDetails" },
+      practicals: { $addToSet: "$practicalsDetails" },
+      learningMaterials: { $addToSet: "$learningMaterialsDetails" },
       assignments: { $first: "$assignments" },
       defaultSelected: { $first: "$defaultSelected" },
       isDeleted: { $first: "$isDeleted" },
@@ -200,6 +251,12 @@ export const getProgramDetailsAggregation = [
       "learningMaterials.createdAt": 0,
       "learningMaterials.updatedAt": 0,
       "learningMaterials.__v": 0,
+      "practicals.courseContents": 0,
+      "practicals.description": 0,
+      "practicals.isDeleted": 0,
+      "practicals.createdAt": 0,
+      "practicals.updatedAt": 0,
+      "practicals.__v": 0,
       createdAt: 0,
       updatedAt: 0,
       __v: 0,

@@ -1,9 +1,13 @@
+import httpStatus from "http-status";
 import { UserRole } from "../user/user.constant.js";
+import { User } from "../user/user.model.js";
 import {
   getFullProgramAggregation,
   getProgramDetailsAggregation,
 } from "./program.utils.js";
 import { Program } from "./programs.model.js";
+import AppError from "../../errors/AppError.js";
+import { Types } from "mongoose";
 
 const createProgramIntoDB = async (payload) => {
   const userData = payload;
@@ -11,11 +15,23 @@ const createProgramIntoDB = async (payload) => {
   return result;
 };
 
-const getAllPrograms = async (role, info) => {
+const getAllPrograms = async (role, info, email) => {
   let result;
   if (role === UserRole.user) {
     if (info.info) {
-      result = await Program.aggregate(getProgramDetailsAggregation);
+      const user = await User.isUserExistByEmail(email);
+
+      if (!user) {
+        throw new AppError(httpStatus.NOT_FOUND, "This user is not found !");
+      }
+
+      const completedTasks = user.completedTask;
+
+      console.log(completedTasks);
+
+      result = await Program.aggregate(
+        getProgramDetailsAggregation(completedTasks)
+      );
     } else {
       result = await Program.aggregate(getFullProgramAggregation);
     }

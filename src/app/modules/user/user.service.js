@@ -61,9 +61,31 @@ const deleteUser = async (email, payload) => {
   return result;
 };
 
+const updateCompletedTask = async (email, taskId) => {
+  const user = await User.isUserExistByEmail(email);
+  if (!user) {
+    throw new AppError(httpStatus.NOT_FOUND, "This user is not found!");
+  }
+
+  const result = await User.findOneAndUpdate(
+    { email },
+    { $addToSet: { completedTask: taskId } },
+    { new: true }
+  );
+
+  if (!result) {
+    throw new AppError(
+      httpStatus.NOT_FOUND,
+      "No User found to update completedTask!"
+    );
+  }
+
+  return result;
+};
 export const UserService = {
   createUserIntoDB,
   getMe,
   changeStatus,
   deleteUser,
+  updateCompletedTask,
 };

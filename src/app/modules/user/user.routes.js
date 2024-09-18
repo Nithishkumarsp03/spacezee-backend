@@ -37,4 +37,11 @@ router.delete(
   UserController.deleteUser
 );
 
+router.patch(
+  "/task-update",
+  auth(UserRole.user),
+  validateRequest(UserValidation.userCompletedTaskSchema),
+  UserController.updateCompletedTask
+);
+
 export const UserRoutes = router;
