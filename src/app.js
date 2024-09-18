@@ -3,14 +3,14 @@ import cors from "cors";
 import notFound from "./app/middleware/notfound.js";
 import globalErrorHandler from "./app/middleware/globalErrorHandler.js";
 import router from "./app/routes/routes.js";
+import config from "./app/config.js";
 
 const app = express();
 
 //parsers
-const URL = "https://sl-il.netlify.app";
-const dev = "http://localhost:5173";
+
 app.use(express.json());
-app.use(cors({ origin: dev, credentials: true }));
+app.use(cors({ origin: config.url_front, credentials: true }));
 
 // application routes
 app.use("/api/", router);

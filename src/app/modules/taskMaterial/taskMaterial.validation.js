@@ -1,21 +1,10 @@
 import { z } from "zod";
 
-const contentDetailsValidationSchema = z
-  .object({
-    questions: z.object({}).optional(),
-    answers: z.object({}).optional(),
-    isDeleted: z.boolean().optional().default(false),
-  })
-  .superRefine((data, ctx) => {
-    if (data && Object.keys(data).length > 0) {
-      if (!data.questions) {
-        ctx.addIssue({
-          path: ["questions"],
-          message: "Questions are required",
-        });
-      }
-    }
-  });
+const contentDetailsValidationSchema = z.object({
+  questions: z.union([z.object({}).passthrough(), z.array(z.any())]).optional(),
+  answers: z.object({}).optional(),
+  isDeleted: z.boolean().optional().default(false),
+});
 
 const courseContentsValidationSchema = z
   .object({

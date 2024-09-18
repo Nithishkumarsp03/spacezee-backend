@@ -3,7 +3,8 @@ import { Schema, model } from "mongoose";
 const contentDetailsSchema = new Schema(
   {
     questions: {
-      type: Object,
+      type: Schema.Types.Mixed,
+      default: {},
     },
     answers: {
       type: Object,
