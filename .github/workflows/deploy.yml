@@ -26,3 +26,21 @@ jobs:
         run: |
           cd /home/ubuntu/actions-runner-node
           docker-compose up -d --build backend  # Only rebuild and restart the backend, MongoDB is unaffected
+          env:
+            NODE_ENV: ${{ secrets.NODE_ENV }}
+            BCRYPT_SALT_ROUNDS: ${{ secrets.BCRYPT_SALT_ROUNDS }}
+            CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+            CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+            CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+            DB_URL: ${{ secrets.DB_URL }}
+            EMAIL_APP_PASS: ${{ secrets.EMAIL_APP_PASS }}
+            EMAIL_NODEMAILER: ${{ secrets.EMAIL_NODEMAILER }}
+            JWT_ACCESS_SECRET: ${{ secrets.JWT_ACCESS_SECRET }}
+            JWT_REFRESH_SECRET: ${{ secrets.JWT_REFRESH_SECRET }}
+            JWT_ACCESS_EXPIRES_IN: ${{ secrets.JWT_ACCESS_EXPIRES_IN }}
+            JWT_REFRESH_EXPIRES_IN: ${{ secrets.JWT_REFRESH_EXPIRES_IN }}
+            RESET_PASS_UI_LINK: ${{ secrets.RESET_PASS_UI_LINK }}
+            SUPER_ADMIN_EMAIL: ${{ secrets.SUPER_ADMIN_EMAIL }}
+            SUPER_ADMIN_PASS: ${{ secrets.SUPER_ADMIN_PASS }}
+            URL_FRONT: ${{ secrets.URL_FRONT }}
+            PORT: ${{ secrets.PORT }}
