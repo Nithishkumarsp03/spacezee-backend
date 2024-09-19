@@ -18,6 +18,5 @@ jobs:
 
       - name: Build and deploy the backend
         run: |
-          cd actions-runner-node
           cp -r $GITHUB_WORKSPACE/. .
           docker-compose up -d backend  # Start backend independently
