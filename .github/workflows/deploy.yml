@@ -10,10 +10,14 @@ jobs:
     runs-on: self-hosted
     name: Deploy Backend
     steps:
-      - name: Checkout code
+      - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Deploy Backend
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build and deploy the backend
         run: |
-          docker-compose down
-          docker-compose up -d --build backend
+          cd actions-runner-node
+          cp -r $GITHUB_WORKSPACE/. .
+          docker-compose up -d backend  # Start backend independently
