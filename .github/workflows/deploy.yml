@@ -18,5 +18,6 @@ jobs:
 
       - name: Build and deploy the backend
         run: |
-          cp -r $GITHUB_WORKSPACE/. .
-          docker-compose up -d backend  # Start backend independently
+          cd /home/ubuntu/actions-runner-node/_work/SL-IL-platform-backend/SL-IL-platform-backend
+          docker-compose down
+          docker-compose up -d --build backend
