@@ -9,6 +9,7 @@ jobs:
   deploy:
     runs-on: self-hosted
     name: Deploy Backend
+
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v3
@@ -23,4 +24,4 @@ jobs:
       - name: Build and deploy the backend
         run: |
           cd /home/ubuntu/actions-runner-node
-          docker-compose up -d --build backend  # Only rebuild and restart the backend, MongoDB is unaffected
+          docker-compose up -d --build backend  # Rebuild and restart the backend, MongoDB is unaffected
