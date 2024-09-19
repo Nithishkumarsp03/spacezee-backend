@@ -25,4 +25,4 @@ jobs:
       - name: Build and deploy the backend
         run: |
           cd /home/ubuntu/actions-runner-node
-          docker-compose up -d --build backend  # Only rebuild and restart the backend, MongoDB is unaffected
+          docker-compose up -d --build backend  # Only rebuild and restart the backend, MongoDB is unaffected done
