@@ -19,9 +19,7 @@ jobs:
 
       - name: Copy backend code (excluding .git) to the runner
         run: |
-          shopt -s dotglob  # Enable copying of hidden files like .env
-          rsync -av --exclude='.git' --exclude='node_modules' /home/ubuntu/actions-runner-node/_work/SL-IL-platform-backend/SL-IL-platform-backend/* /home/ubuntu/actions-runner-node/
-
+          cp -r /home/ubuntu/actions-runner-node/_work/SL-IL-platform-backend/SL-IL-platform-backend/* /home/ubuntu/actions-runner-node/
       - name: Build and deploy the backend
         run: |
           cd /home/ubuntu/actions-runner-node
