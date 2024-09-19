@@ -42,4 +42,4 @@ jobs:
           PORT: ${{ secrets.PORT }}
         run: |
           cd /home/ubuntu/actions-runner-node
-          docker-compose up -d --build backend  # Only rebuild and restart the backend, MongoDB is unaffected
+          docker-compose up -d --build backend  # Only rebuild and restart the backend, MongoDB
