@@ -9,7 +9,7 @@ const app = express();
 //parsers
 
 app.use(express.json());
-app.use(cors({ origin: "http://34.23.0.131", credentials: true }));
+app.use(cors({ origin: "http://34.235.0.131/", credentials: true }));
 
 // application routes
 app.use("/api/", router);
