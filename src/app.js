@@ -3,14 +3,13 @@ import cors from "cors";
 import notFound from "./app/middleware/notfound.js";
 import globalErrorHandler from "./app/middleware/globalErrorHandler.js";
 import router from "./app/routes/routes.js";
-import config from "./app/config.js";
 
 const app = express();
 
 //parsers
 
 app.use(express.json());
-app.use(cors({ origin: config.url_front, credentials: true }));
+app.use(cors({ origin: "http://34.235.0.131/", credentials: true }));
 
 // application routes
 app.use("/api/", router);
