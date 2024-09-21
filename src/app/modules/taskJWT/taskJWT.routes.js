@@ -11,4 +11,6 @@ router.post(
   TaskJwtController.createTaskJwt
 );
 
+router.post("/task", auth(UserRole.user), TaskJwtController.sendTaskJwt);
+
 export const jwtRoutes = router;
