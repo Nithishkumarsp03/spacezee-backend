@@ -60,5 +60,5 @@ jobs:
           # Remove any dangling images created during the build process
           docker image prune -f
 
-          # Optionally remove stopped containers (but not MongoDB or other services)
-          docker container prune -f --filter "name=backend-service"
+          # Remove stopped backend containers (excluding MongoDB)
+          docker ps -a --filter "name=backend-service" --filter "status=exited" --format "{{.ID}}" | xargs -r docker rm
