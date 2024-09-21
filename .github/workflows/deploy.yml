@@ -17,7 +17,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
-      - name: Clean up old Docker containers and images (excluding running containers)
+      - name: Clean up old Docker containers and images (excluding MongoDB)
         run: |
           # Remove dangling images (images not used by any container)
           docker image prune -f
@@ -55,10 +55,10 @@ jobs:
           cd /home/ubuntu/actions-runner-node
           docker-compose up -d --build backend  # Only rebuild and restart the backend service
 
-      - name: Clean up unused Docker resources after the build
+      - name: Clean up unused Docker resources after the build (backend-specific)
         run: |
           # Remove any dangling images created during the build process
           docker image prune -f
 
-          # Optionally remove stopped containers (not running containers)
-          docker container prune -f
+          # Optionally remove stopped containers (but not MongoDB or other services)
+          docker container prune -f --filter "name=backend-service"
