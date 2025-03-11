@@ -12,8 +12,12 @@ const createUserIntoDB = async (payload) => {
   const id = uuidv4();
   userData.id = id;
 
+  console.log(userData);
+
   const newUser = await User.create(userData);
-  sendEmail(
+  console.log(newUser);
+
+  await sendEmail(
     newUser.email,
     emailFormatter.userIdEmailFormatter(newUser.id),
     "Registration successful"

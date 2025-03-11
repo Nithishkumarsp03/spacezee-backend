@@ -256,7 +256,7 @@ const forgetPassword = async (email) => {
 
   const resetUILink = `${config.reset_pass_ui_link}?token=${resetToken} `;
 
-  sendEmail(
+  await sendEmail(
     user.email,
     emailFormatter.passwordResetEmailFormat(resetUILink),
     "Reset your password within ten mins!"
@@ -348,7 +348,7 @@ const createPassword = async (userData) => {
     symbols: true,
   });
 
-  sendEmail(
+  await sendEmail(
     user.email,
     emailFormatter.passwordEmailFormat(newPassword),
     "New password generated"

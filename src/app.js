@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = ["http://34.235.0.131", "http://34.235.0.131:5000"];
+const allowedOrigins = ["http://localhost:5173"];
 
 app.use(
   cors({
