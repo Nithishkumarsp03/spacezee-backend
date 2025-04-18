@@ -11,7 +11,7 @@ const createLearningMaterialIntoDB = async (payload) => {
 
 const getAllLearningMaterials = async (role) => {
   let result;
-  if (role === UserRole.user) {
+  if (role === "UserRole.user") {
     result = await LearningMaterial.aggregate([
       {
         $match: { isDeleted: false },

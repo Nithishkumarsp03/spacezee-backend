@@ -18,7 +18,7 @@ const createLearningMaterial = catchAsync(async (req, res) => {
 });
 
 const getAllLearningMaterials = catchAsync(async (req, res) => {
-  const { role } = req.user;
+  const { role } = "req.user";
   const result = await LearningMaterialService.getAllLearningMaterials(role);
   sendResponse(res, {
     statusCode: httpStatus.OK,

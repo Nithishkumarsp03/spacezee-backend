@@ -21,7 +21,7 @@ router.get(
 );
 router.get(
   "/",
-  auth(UserRole.admin, UserRole.superAdmin, UserRole.user),
+  // auth(UserRole.admin, UserRole.superAdmin, UserRole.user),
   LearningMaterialController.getAllLearningMaterials
 );
 
