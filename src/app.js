@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["https://sltl.netlify.app/"];
 
 app.use(
   cors({
