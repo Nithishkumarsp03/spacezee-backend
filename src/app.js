@@ -10,20 +10,26 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = ["https://sltl.netlify.app", "https://www.fxlearning.ai"];
+const allowedOrigins = [
+  "https://sltl.netlify.app",
+  "https://www.fxlearning.ai",
+  "http://localhost:5173",
+];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.error("Blocked by CORS:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
     credentials: true,
   })
 );
+console.log("Runnnig")
 
 // application routes
 app.use("/api/", router);
