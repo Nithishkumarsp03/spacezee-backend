@@ -14,6 +14,7 @@ const allowedOrigins = [
   "https://sltl.netlify.app",
   "https://www.fxlearning.ai",
   "http://localhost:5173",
+  "https://spacezee-backend.vercel.app"
 ];
 
 app.use(
