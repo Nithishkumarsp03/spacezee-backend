@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 
-const allowedOrigins = ["https://sltl.netlify.app/"];
+const allowedOrigins = ["https://sltl.netlify.app", "https://www.fxlearning.ai"];
 
 app.use(
   cors({
