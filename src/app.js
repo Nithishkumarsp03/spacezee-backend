@@ -12,9 +12,8 @@ app.use(express.json());
 
 const allowedOrigins = [
   "https://sltl.netlify.app",
-  "https://www.fxlearning.ai",
-  "http://localhost:5173",
-  "https://spacezee-backend.vercel.app"
+  "https://fxlearning.ai",
+  "http://localhost:5173"
 ];
 
 app.use(
