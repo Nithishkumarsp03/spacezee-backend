@@ -52,7 +52,7 @@ userSchema.post("save", function (doc, next) {
 });
 
 userSchema.statics.isUserExistByEmail = async function (email) {
-  return await User.findOne({ email }).select("+password");
+  return await User.findOne({ email: email.toLowerCase() }).select("+password");
 };
 
 userSchema.statics.isPasswordMatched = async function (

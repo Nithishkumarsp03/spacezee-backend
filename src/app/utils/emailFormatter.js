@@ -68,7 +68,7 @@ const passwordEmailFormat = (newPassword) => {
                 Password: ${newPassword}
             </div>
             <p>Thank you,</p>
-            <p>SpaceZee</p>
+            <p>FX learning</p>
         </div>
         <div class="email-footer">
             <p>If you did not request a password reset, please contact our support team immediately.</p>
@@ -139,7 +139,7 @@ const passwordResetEmailFormat = (resetUILink) => {
             </p>
             <p>This link is valid for 10 minutes. If you did not request a password reset, please ignore this email or contact our support team if you have any concerns.</p>
             <p>Thank you,</p>
-            <p>SpaceZee</p>
+            <p>FX learning</p>
         </div>
         <div class="email-footer">
             <p>If you have any questions, feel free to contact us at support@example.com.</p>
@@ -156,7 +156,7 @@ const userIdEmailFormatter = (userId) => {
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Welcome to SpaceZee</title>
+      <title>Welcome to FX learning</title>
       <style>
           body {
               font-family: Arial, sans-serif;
@@ -200,15 +200,15 @@ const userIdEmailFormatter = (userId) => {
   <body>
       <div class="email-container">
           <div class="email-header">
-              <h1>Welcome to SpaceZee</h1>
+              <h1>Welcome to FX learning</h1>
           </div>
           <div class="email-content">
               <p>Dear User,</p>
-              <p>Welcome to SpaceZee! Your account has been successfully created.</p>
+              <p>Welcome to FX learning! Your account has been successfully created.</p>
               <p>Your User ID is: <strong>${userId}</strong></p>
               <p>Thank you for joining us!</p>
               <p>Best Regards,</p>
-              <p>SpaceZee Team</p>
+              <p>FX learning Team</p>
           </div>
           <div class="email-footer">
               <p>If you have any questions, feel free to contact us at support@example.com.</p>
