@@ -3,6 +3,7 @@ import cors from "cors";
 import notFound from "./app/middleware/notfound.js";
 import globalErrorHandler from "./app/middleware/globalErrorHandler.js";
 import router from "./app/routes/routes.js";
+import path from "path";
 
 const app = express();
 
@@ -15,6 +16,8 @@ const allowedOrigins = [
   "https://fxlearning.ai",
   "http://localhost:5173"
 ];
+
+app.use("/images", express.static(path.join(process.cwd(), "public")));
 
 app.use(
   cors({
