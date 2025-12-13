@@ -36,7 +36,8 @@ app.use("/images", express.static(path.join(process.cwd(), "public")));
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://fxlearning.ai",
+    credentials: true,
   })
 );
 
