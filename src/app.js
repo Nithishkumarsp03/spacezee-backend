@@ -12,6 +12,7 @@ const app = express();
 app.use(express.json());
 
 const allowedOrigins = [
+  "*",
   "https://sltl.netlify.app",
   "https://fxlearning.ai",
   "http://localhost:5173"
